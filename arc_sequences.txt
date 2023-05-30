@@ -1,0 +1,46 @@
+// --- 13 crossing sequence (Original) -----//
+
+// {"id": "1", "group": 1},
+// {"id": "2", "group": 2},
+// {"id": "3", "group": 3},
+// {"id": "4", "group": 4},
+// {"id": "5", "group": 5},
+// {"id": "6", "group": 6},
+// {"id": "7", "group": 7},
+// {"id": "8", "group": 8},
+// {"id": "9", "group": 9},
+// {"id": "10", "group": 10},
+// {"id": "11", "group": 11},
+// {"id": "12", "group": 12},
+// {"id": "13", "group": 13}
+
+// --- 10 crossing sequence -----//
+// {"id": "1", "group": 1},
+// {"id": "2", "group": 2},
+// {"id": "13", "group": 13},
+// {"id": "12", "group": 12},
+// {"id": "3", "group": 3},
+// {"id": "4", "group": 4},
+// {"id": "5", "group": 5},
+// {"id": "6", "group": 6},
+// {"id": "7", "group": 7},
+// {"id": "10", "group": 10},
+// {"id": "8", "group": 8},
+// {"id": "9", "group": 9},
+// {"id": "11", "group": 11}
+
+
+// --- 7 crossing sequence -----//
+// {"id": "2", "group": 2},
+// {"id": "1", "group": 1},
+// {"id": "13", "group": 13},
+// {"id": "3", "group": 3},
+// {"id": "4", "group": 4},
+// {"id": "5", "group": 5},
+// {"id": "6", "group": 6},
+// {"id": "7", "group": 7},
+// {"id": "10", "group": 10},
+// {"id": "8", "group": 8},
+// {"id": "9", "group": 9},
+// {"id": "11", "group": 11},
+// {"id": "12", "group": 12}

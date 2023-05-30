@@ -1,0 +1,76 @@
+{
+    "nodes": [
+        {"id": "2", "name": "2", "chapters": [""]},
+        {"id": "1", "name": "1", "chapters": [""]},
+        {"id": "13", "name": "13", "chapters": [""]},
+        {"id": "3", "name": "3", "chapters": [""]},
+        {"id": "4", "name": "4", "chapters": [""]},
+        {"id": "5", "name": "5", "chapters": [""]},
+        {"id": "6", "name": "6", "chapters": [""]},
+        {"id": "7", "name": "7", "chapters": [""]},
+        {"id": "10", "name": "10", "chapters": [""]},
+        {"id": "8", "name": "8", "chapters": [""]},
+        {"id": "9", "name": "9", "chapters": [""]},
+        {"id": "11", "name": "11", "chapters": [""]},
+        {"id": "12", "name": "12", "chapters": [""]}
+    ],
+    "links": [
+        { "source": "1", "target":"2" , "chapters": 1},
+        { "source": "1", "target":"12" , "chapters": 1},
+        { "source": "1", "target":"13" , "chapters": 1},
+
+        { "source": "2", "target":"1" , "chapters": 1},
+        { "source": "2", "target":"3" , "chapters": 1},
+        { "source": "2", "target":"13" , "chapters": 1},
+
+        {"source": "3", "target": "2", "chapters": 1},
+        {"source": "3", "target": "4", "chapters": 1},
+        {"source": "3", "target": "13", "chapters": 1},
+
+        {"source": "4", "target": "3", "chapters": 1},
+        {"source": "4", "target": "5", "chapters": 1},
+        {"source": "4", "target": "10", "chapters": 1},
+
+        {"source": "5", "target": "4", "chapters": 1},
+        {"source": "5", "target": "6", "chapters": 1},
+        {"source": "5", "target": "10", "chapters": 1},
+
+        {"source": "6", "target": "5", "chapters": 1},
+        {"source": "6", "target": "7", "chapters": 1},
+
+        {"source": "7", "target": "6", "chapters": 1},
+        {"source": "7", "target": "10", "chapters": 1},
+        
+        {"source": "8", "target": "9", "chapters": 1},
+        {"source": "8", "target": "10", "chapters": 1},
+        {"source": "8", "target": "13", "chapters": 1},
+
+        {"source": "9", "target": "8", "chapters": 1},
+        {"source": "9", "target": "11", "chapters": 1},
+        
+        {"source": "10", "target": "4", "chapters": 1},
+        {"source": "10", "target": "5", "chapters": 1},
+        {"source": "10", "target": "7", "chapters": 1},
+        {"source": "10", "target": "8", "chapters": 1},
+        {"source": "10", "target": "13", "chapters": 1},
+        {"source": "10", "target": "11", "chapters": 1},
+        {"source": "10", "target": "12", "chapters": 1},
+
+        {"source": "11", "target": "9", "chapters": 1},
+        {"source": "11", "target": "10", "chapters": 1},
+        {"source": "11", "target": "12", "chapters": 1},
+
+        {"source": "12", "target": "1", "chapters": 1},
+        {"source": "12", "target": "10", "chapters": 1},
+        {"source": "12", "target": "11", "chapters": 1},
+        {"source": "12", "target": "13", "chapters": 1},
+
+        {"source": "13", "target": "1", "chapters": 1},
+        {"source": "13", "target": "2", "chapters": 1},
+        {"source": "13", "target": "3", "chapters": 1},
+        {"source": "13", "target": "8", "chapters": 1},
+        {"source": "13", "target": "10", "chapters": 1},
+        {"source": "13", "target": "12", "chapters": 1}
+
+    ]
+  }

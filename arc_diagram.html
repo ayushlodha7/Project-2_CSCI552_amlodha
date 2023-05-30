@@ -1,0 +1,129 @@
+<!-- Code from d3-graph-gallery.com -->
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="arc_diagram"></div>
+
+
+<script>
+
+// Below block of code is set of graph margins and dimensions
+var margin = {top: 20, right: 30, bottom: 20, left: 30},
+  width = 800 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#arc_diagram")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Read dummy data
+d3.json("data.json", function( data) {
+
+  // List of node names
+  var allNodes = data.nodes.map(function(d){return d.group})
+
+  // A linear scale to position the nodes on the X axis
+  var x = d3.scalePoint()
+    .range([0, width])
+    .domain(allNodes)
+
+  // Give circular shape to the nodes
+  var nodes = svg
+    .selectAll("arc_diagram_nodes")
+    .data(data.nodes)
+    .enter()
+    .append("circle")
+      .attr("cx", function(d){ return(x(d.group))})
+      .attr("cy", height-30)
+      .attr("r", 8)
+      .style("fill", "#0000FF")
+
+  // And labels to the nodes
+  var labels = svg
+    .selectAll("node_labels")
+    .data(data.nodes)
+    .enter()
+    .append("text")
+      .attr("x", function(d){ return(x(d.group))})
+      .attr("y", height-8)
+      .text(function(d){ return(d.group)})
+      .style("text-anchor", "middle")
+
+  // In below block of code we would add links between nodes
+  // In my input data, links are provided between nodes -id-, NOT between node names.
+  // So I have to do a link between this id and the name
+
+  // Below block of the code shows how there is the link between the nodes.
+  // In the input data, the links are provided between nodes, in our case "id"
+  var idToNode = {};
+  data.nodes.forEach(function (n) {
+    idToNode[n.id] = n; // For example : In this line idToNode["7"] = 7 
+  });
+
+  // Add the links
+  var links = svg
+    .selectAll('node_links')
+    .data(data.links)
+    .enter()
+    .append('path')
+    .attr('d', function (d) {
+      start = x(idToNode[d.source].group)    // Position of Source node on the X axis
+      end = x(idToNode[d.target].group)      // Position of Target node on the X axis
+      // Now in the below block of the code we draw the arc from the source to target 
+      return ['M', start, height-30,   
+        'A',                           
+        (start - end)/2, ',',    
+        (start - end)/2, 0, 0, ',',
+        start < end ? 1 : 0, end, ',', height-30] 
+        .join(' ');
+    })
+    .style("fill", "none")
+    .attr("stroke", "black")
+
+    // Now we add the hovering feature so that we can observe the link of the particular nodes.
+    nodes
+      .on('mouseover', function (d) {
+        // Highlight the nodes: every node is green except of him
+        nodes.style('fill', "#0000FF")
+        d3.select(this).style('fill', '#ADD8E6')
+        // Highlight the links between the nodes over the hover
+        links
+          .style('stroke', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? '#ADD8E6' : '#0000FF';})
+          .style('stroke-width', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? 4 : 1;})
+      })
+      .on('mouseout', function (d) {
+        nodes.style('fill', "#0000FF")
+        links
+          .style('stroke', 'black')
+          .style('stroke-width', '1')
+      })
+})
+
+// Add text to inform user that they can hover over the nodes
+svg
+  .append("text")
+    .attr("text-anchor", "middle")
+    .style("fill", "#B8B8B8")
+    .style("font-size", "17px")
+    .attr("x", width/2)
+    .attr("y", height+10)
+    .html("Hover nodes to see their Respective Links")
+
+// Added Main title for the graph
+svg.append("text")
+    .attr("x", width/2)
+    .attr("y", 10)
+    .attr("text-anchor", "middle")
+    .style("font-size", "30px")
+    .text("Arc Diagram");
+
+</script>
